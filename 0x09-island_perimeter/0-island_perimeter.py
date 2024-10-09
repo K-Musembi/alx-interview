@@ -4,6 +4,14 @@
 
 def island_perimeter(grid):
     """find perimeter of grid"""
+    if not isinstance(grid, list) or not all(
+            isinstance(row, list) for row in grid):
+        return
+
+    for row in grid:
+        if not all(isinstance(cell, int) for cell in row):
+            return
+
     perimeter = 0
     previous_row = None
     previous_cell = None
